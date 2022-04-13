@@ -1,0 +1,39 @@
+user 
+root
+1234
+
+
+user1
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTVhNTZjY2NhMzFiYmRmZWYxOGFiZSIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjQ5NzgyNDY1LCJleHAiOjE2NDk4Njg4NjV9.pr0uRb_a1tO3PamN30UyMAEY9zVICjlZDeN2ChAE_yE
+
+
+админ
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNTQ1YWEzYjhlYTg2ZTIyOWQ4N2Y5MCIsInJvbGVzIjpbIkFETUlOIl0sImlhdCI6MTY0OTc4MDM2OSwiZXhwIjoxNjQ5ODY2NzY5fQ.ctltjykNDi-QqNBIke7ybrlEfVQrnwfo30YDxWpFWag
+
+
+
+суть работы 
+1 middlewear это прослойка между входящими данными на сервер и самим сервером, это можно назвать подпрограммой которая при приходе на сервер запроса может его обработаь
+например проверить на валидность данные или сделать проверку на права пользователя
+2 вся логика по роутам вынесена в контроллер, а перед ним запрос от пользователя проходит проверку на валидность через самописный middlewear (roleMiddleware)
+3 authMiddleware.js показывает пользователь авторизован или нет, а roleMiddleware.js показывает доступен ли данный роут при имеющиххся провах у пользователя (проверка на права)
+4 чтобы работать с JWT токеном использовались сторонние библиотеки это jsonwebtoken
+5 чтобы грамотно хешировать пароль используется const bcrypt = require('bcryptjs');
+6 чтобы проверить на сервере входные данные использую плагин  require('express-validator'); он используется как middlewear перед переходом данные в роут и в самом роуте
+7 секретный ключ для JWT храниться в конфиге
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
